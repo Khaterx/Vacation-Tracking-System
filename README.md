@@ -15,7 +15,7 @@
 
 ---
 
-## 1.Vision:
+## 1.Vision: {#1-vision}
 _"A Vacation Tracking System (VTS) Enable employees to self-manage vacation/sick leave without HR intervention while enforcing company policies through automated rules."_
 
 **Key Motivations**:
@@ -27,13 +27,13 @@ _"A Vacation Tracking System (VTS) Enable employees to self-manage vacation/sick
 >[!TIP] _The System Must be easy use it._
 
 ---
-## 2.**Domain Overview:
+## 2.**Domain Overview: {#2-domain-overview}
 Automate employee leave management while enforcing company policies through a rules-based workflow, reducing HR overhead and empowering employees through self-service features.
 
 ---
-## 3.System Requirements
+## 3.System Requirements: {#3-system-requirements}
 
-### ✅ Functional Requirements
+### ✅ Functional Requirements {#functional-requirements}
 
 - Validates vacation requests using flexible rules.
 - Some requests may need manager approval.
@@ -43,7 +43,7 @@ Automate employee leave management while enforcing company policies through a ru
 - HR and system admins can override rules when needed.
 - Managers can give extra time off (within limits).
 ---
-### ⚙️ Non-Functional Requirements
+### ⚙️ Non-Functional Requirements {#non-functional-requirements}
 
 - Works with current company hardware and intranet.
 - Includes a calendar for choosing dates easily.
@@ -51,13 +51,13 @@ Automate employee leave management while enforcing company policies through a ru
 - Provides real-time validation feedback.
 - Sends instant notifications via email on request status updates.
 ---
-### 🚫 Constraints
+### 🚫 Constraints {#constraints}
 
 - Must run inside the company’s intranet and use its login system.
-- Description field for vacation request is limited to one paragraph.
+- Description field for vacation requests is limited to one paragraph.
 - Only allows data access from the past 6 months and up to 18 months into the future.
 ---
-## 4.Actors:
+## 4.Actors: {#4-actors}
 
 | Actor        | Responsibilities                         | Key Interactions                       |
 | ------------ | ---------------------------------------- | -------------------------------------- |
@@ -67,7 +67,7 @@ Automate employee leave management while enforcing company policies through a ru
 | System Admin | Maintain logs, backups                   | Back Up System Logs                    |
 
 ---
-## 5.Main Use Cases:-
+## 5.Main Use Cases: {#5-main-use-cases}
 
 - [ ] **Manage Time** – Request/view leave history and balances. 🔺📅 2025-05-25 
 - [ ] **Approve Request** – Approve or reject vacation requests.
@@ -78,7 +78,7 @@ Automate employee leave management while enforcing company policies through a ru
 - [ ] **Override Leave Records** – HR can override system-enforced rejections.
 - [ ] **Back Up System Logs** – Backup logs for auditing and recovery.
 ---
-## 6.Mange Time Use-Case Details:
+## 6.Manage Time Use-Case Details: {#6-manage-time-use-case-details}
 
 ### 🎭 Actor:
 - **Employee**
@@ -88,7 +88,7 @@ Automate employee leave management while enforcing company policies through a ru
 - Employee is authenticated and authorized via the intranet portal.
 
 ### 📋 Main Flow:
-1. Employee opens VTS from intranet.
+1. Employee opens VTS from the intranet.
 2. System displays current requests and leave balances (6 months back to 18 months ahead).
 3. Employee creates a new request with:
    - Start/end dates
@@ -105,11 +105,11 @@ Automate employee leave management while enforcing company policies through a ru
 7. Employee receives status update via email.
 ---
 
- ### 📊 Flow Chart:
- ![[02_Learning/JAVA_Mentorship/Tasks/Vacation-Tracking-System/assets/manage-time-work-flow.excalidraw.png]]
+ ### 📊 Flow Chart: {#flow-chart}
+ ![[/assets/manage-time-work-flow.excalidraw.png]]
 
 ---
-### 🔁 Sequence Diagram:
+### 🔁 Sequence Diagram: {#sequence-diagram}
 
 
 
