@@ -1,5 +1,8 @@
-# **Vacation Tracking System - (VST)**
-### The Vacation Tracking System Idea is presented in the [Object Oriented Analysis And Design textbook, 3rd edition](https://www.oreilly.com/library/view/object-oriented-analysis-and/9780201895513/).
+# **Vacation Tracking System (VTS)**
+
+A self-service leave management system based on a case study from the book [_Object-Oriented Analysis and Design, 3rd Edition_](https://www.oreilly.com/library/view/object-oriented-analysis-and/9780201895513/).  
+VTS enables employees to manage their vacation and sick leave independently while ensuring compliance with company policies through automated workflows.
+
 ## 📘 Index
 - [Vision](#1-vision)
 - [Domain Overview](domain-overview)
