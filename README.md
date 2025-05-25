@@ -105,11 +105,11 @@ Automate employee leave management while enforcing company policies through a ru
 7. Employee receives status update via email.
 ---
 ### ERD:
-![[ERD.png]]
+![[../assets/ERD.png]]
 
 ---
  ### 📊 Flow Chart:
-![[assets/manage-time-work-flow.excalidraw.png]]
+![[../assets/manage-time-work-flow.excalidraw.png]]
 
 ---
 ### 🔁 Sequence Diagram: 
