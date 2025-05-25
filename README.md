@@ -104,12 +104,12 @@ Automate employee leave management while enforcing company policies through a ru
 6. Manager approves/rejects request (adds reason if rejected).
 7. Employee receives status update via email.
 ---
-### ERD:
-![[../assets/ERD.png]]
+### ERD (Entity Relationship Diagram):
+![ERD Diagram](assets/ERD.png)
 
 ---
  ### 📊 Flow Chart:
-![[../assets/manage-time-work-flow.excalidraw.png]]
+![Manage Time Workflow](assets/manage-time-work-flow.excalidraw.png)
 
 ---
 ### 🔁 Sequence Diagram: 
