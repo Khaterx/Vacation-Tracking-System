@@ -26,17 +26,16 @@ _"A Vacation Tracking System (VTS) Enable employees to self-manage vacation/sick
 	- Streamline approval processes (e.g., automated rules-based validation).
 	- Integrates with existing intranet portal (single sign-on).
 
->[!TIP] _The System Must be easy use it._
+> _The System Must be easy use it._
 
 ---
+
 ## 2.Domain Overview:
 Automate employee leave management while enforcing company policies through a rules-based workflow, reducing HR overhead and empowering employees through self-service features.
 
 ---
-## 3.System Requirements
-
+## 3.System Requirements: 
 ### ✅ Functional Requirements
-
 - Validates vacation requests using flexible rules.
 - Some requests may need manager approval.
 - Shows vacation history (last year) and lets you request time off up to 18 months ahead.
@@ -53,13 +52,13 @@ Automate employee leave management while enforcing company policies through a ru
 - Provides real-time validation feedback.
 - Sends instant notifications via email on request status updates.
 ---
-### 🚫 Constraints
+### 🚫 Constraints 
 
 - Must run inside the company’s intranet and use its login system.
-- Description field for vacation request is limited to one paragraph.
+- Description field for vacation requests is limited to one paragraph.
 - Only allows data access from the past 6 months and up to 18 months into the future.
 ---
-## 4.Actors:
+## 4.Actors: 
 
 | Actor        | Responsibilities                         | Key Interactions                       |
 | ------------ | ---------------------------------------- | -------------------------------------- |
@@ -69,9 +68,8 @@ Automate employee leave management while enforcing company policies through a ru
 | System Admin | Maintain logs, backups                   | Back Up System Logs                    |
 
 ---
-## 5.Main Use Cases:-
-
-- [ ] **Manage Time** – Request/view leave history and balances. 🔺📅 2025-05-25 
+## 5.Main Use Cases: 
+- [x] **Manage Time** – Request/view leave history and balances. 🔺✅ 2025-05-25
 - [ ] **Approve Request** – Approve or reject vacation requests.
 - [ ] **Award Time** – Grant additional comp time to subordinates.
 - [ ] **Edit Employee Record** – Update leave quotas, limits, or assignments.
@@ -80,7 +78,7 @@ Automate employee leave management while enforcing company policies through a ru
 - [ ] **Override Leave Records** – HR can override system-enforced rejections.
 - [ ] **Back Up System Logs** – Backup logs for auditing and recovery.
 ---
-## 6.Mange Time Use-Case Details:
+## 6.Manage Time Use-Case Details:
 
 ### 🎭 Actor:
 - **Employee**
@@ -90,7 +88,7 @@ Automate employee leave management while enforcing company policies through a ru
 - Employee is authenticated and authorized via the intranet portal.
 
 ### 📋 Main Flow:
-1. Employee opens VTS from intranet.
+1. Employee opens VTS from the intranet.
 2. System displays current requests and leave balances (6 months back to 18 months ahead).
 3. Employee creates a new request with:
    - Start/end dates
@@ -108,12 +106,13 @@ Automate employee leave management while enforcing company policies through a ru
 ---
 ### ERD:
 ![[ERD.png]]
+
 ---
  ### 📊 Flow Chart:
 ![[assets/manage-time-work-flow.excalidraw.png]]
 
 ---
-### 🔁 Sequence Diagram:
+### 🔁 Sequence Diagram: 
 
 ---
 ### 📃 Pseudocode
