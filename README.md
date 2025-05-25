@@ -1,17 +1,19 @@
 # **Vacation Tracking System - (VST)**
-### The Vacation System Idea is presented in the [Object Oriented Analysis And Design textbook, 3rd edition](https://www.oreilly.com/library/view/object-oriented-analysis-and/9780201895513/).
+### The Vacation Tracking System Idea is presented in the [Object Oriented Analysis And Design textbook, 3rd edition](https://www.oreilly.com/library/view/object-oriented-analysis-and/9780201895513/).
 ## 📘 Index
 - [Vision](#1-vision)
-- [Domain Overview](#2-domain-overview)
-- [System Requirements](#3-system-requirements)
+- [Domain Overview](domain-overview)
+- [System Requirements](#system-requirements)
   - [Functional Requirements](#functional-requirements)
   - [Non-Functional Requirements](#non-functional-requirements)
   - [Constraints](#constraints)
 - [Actors](#4-actors)
 - [Main Use Cases](#5-main-use-cases)
-- [Manage Time Use Case Details](#6-manage-time-use-case-details)
+- [Manage Time Use Case Details](#6-manage-time-use-case-details) 
+  - ERD
   - [Flow Chart](#flow-chart)
   - [Sequence Diagram](#sequence-diagram)
+  - Pseudocode
 
 ---
 
@@ -27,7 +29,7 @@ _"A Vacation Tracking System (VTS) Enable employees to self-manage vacation/sick
 >[!TIP] _The System Must be easy use it._
 
 ---
-## 2.**Domain Overview:
+## 2.Domain Overview:
 Automate employee leave management while enforcing company policies through a rules-based workflow, reducing HR overhead and empowering employees through self-service features.
 
 ---
@@ -104,12 +106,58 @@ Automate employee leave management while enforcing company policies through a ru
 6. Manager approves/rejects request (adds reason if rejected).
 7. Employee receives status update via email.
 ---
-
+### ERD:
+![[ERD.png]]
+---
  ### 📊 Flow Chart:
- ![[02_Learning/JAVA_Mentorship/Tasks/Vacation-Tracking-System/assets/manage-time-work-flow.excalidraw.png]]
+![[assets/manage-time-work-flow.excalidraw.png]]
 
 ---
 ### 🔁 Sequence Diagram:
 
+---
+### 📃 Pseudocode
+```pseudocode
+START
 
+// Step 1: Employee logs into portal
+IF employee IS authenticated THEN
+    SHOW VTS homepage
+    FETCH vacation requests history (last 6 months to next 18 months)
+    SHOW vacation balance
+ELSE
+    DISPLAY "Access Denied"
+    END
+
+// Step 2: Employee creates a new request
+PROMPT employee TO select vacation category WITH positive balance
+
+IF category IS valid THEN
+    PROMPT employee TO select start and end dates, hours per day
+    PROMPT employee TO enter title and description
+
+    // Step 3: Validate data
+    IF input IS valid THEN
+        CREATE new VacationRequest WITH status = "Pending"
+
+        // Step 4: Check if manager approval is required
+        IF manager_approval_required THEN
+            SEND email TO manager WITH approval link
+        ELSE
+            SET VacationRequest.status = "Approved"
+        ENDIF
+
+        SAVE VacationRequest TO database
+        DISPLAY "Request submitted successfully"
+    ELSE
+        DISPLAY validation errors
+        ALLOW employee TO edit or cancel
+    ENDIF
+ELSE
+    DISPLAY "Invalid category or no balance"
+ENDIF
+
+END
+
+```
 
