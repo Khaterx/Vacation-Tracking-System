@@ -4,40 +4,46 @@ A self-service leave management system based on a case study from the book [_Obj
 VTS enables employees to manage their vacation and sick leave independently while ensuring compliance with company policies through automated workflows.
 
 ## 📘 Index
-- [Vision](#1-vision)
-- [Domain Overview](domain-overview)
-- [System Requirements](#system-requirements)
-  - [Functional Requirements](#functional-requirements)
-  - [Non-Functional Requirements](#non-functional-requirements)
-  - [Constraints](#constraints)
-- [Actors](#4-actors)
-- [Main Use Cases](#5-main-use-cases)
-- [Manage Time Use Case Details](#6-manage-time-use-case-details) 
-  - ERD
-  - [Flow Chart](#flow-chart)
-  - [Sequence Diagram](#sequence-diagram)
-  - Pseudocode
+- [**Vacation Tracking System (VTS)**](#vacation-tracking-system-vts)
+  - [📘 Index](#-index)
+  - [Vision:](#vision)
+  - [Domain Overview:](#domain-overview)
+  - [System Requirements:](#system-requirements)
+    - [✅ Functional Requirements](#-functional-requirements)
+    - [⚙️ Non-Functional Requirements](#️-non-functional-requirements)
+    - [🚫 Constraints](#-constraints)
+  - [Actors:](#actors)
+  - [Main Use Cases:](#main-use-cases)
+  - [Manage Time Use-Case Details:](#manage-time-use-case-details)
+    - [🎭 Actor:](#-actor)
+    - [🥅 Goal:](#-goal)
+    - [✅ Preconditions:](#-preconditions)
+    - [📋 Main Flow:](#-main-flow)
+    - [ERD:](#erd)
+    - [📊 Flow Chart:](#-flow-chart)
+    - [🔁 Sequence Diagram:](#-sequence-diagram)
+    - [📃 Pseudocode](#-pseudocode)
 
 ---
 
-## 1.Vision:
+## Vision:
 _"A Vacation Tracking System (VTS) Enable employees to self-manage vacation/sick leave without HR intervention while enforcing company policies through automated rules."_
 
 **Key Motivations**:
-	- Reduce HR workload.
-	- Empower employees with real-time leave balance visibility.
-	- Streamline approval processes (e.g., automated rules-based validation).
-	- Integrates with existing intranet portal (single sign-on).
+- Reduce HR workload.
+- Empower employees with real-time leave balance visibility.
+- Streamline approval processes (e.g., automated rules-based validation).
+- Integrates with existing intranet portal (single sign-on).
 
 > _The System Must be easy use it._
 
 ---
 
-## 2.Domain Overview:
+## Domain Overview:
 Automate employee leave management while enforcing company policies through a rules-based workflow, reducing HR overhead and empowering employees through self-service features.
 
 ---
-## 3.System Requirements: 
+## System Requirements: 
 ### ✅ Functional Requirements
 - Validates vacation requests using flexible rules.
 - Some requests may need manager approval.
@@ -61,7 +67,7 @@ Automate employee leave management while enforcing company policies through a ru
 - Description field for vacation requests is limited to one paragraph.
 - Only allows data access from the past 6 months and up to 18 months into the future.
 ---
-## 4.Actors: 
+## Actors: 
 
 | Actor        | Responsibilities                         | Key Interactions                       |
 | ------------ | ---------------------------------------- | -------------------------------------- |
@@ -71,7 +77,7 @@ Automate employee leave management while enforcing company policies through a ru
 | System Admin | Maintain logs, backups                   | Back Up System Logs                    |
 
 ---
-## 5.Main Use Cases: 
+## Main Use Cases: 
 - [x] **Manage Time** – Request/view leave history and balances. 🔺✅ 2025-05-25
 - [ ] **Approve Request** – Approve or reject vacation requests.
 - [ ] **Award Time** – Grant additional comp time to subordinates.
@@ -81,7 +87,7 @@ Automate employee leave management while enforcing company policies through a ru
 - [ ] **Override Leave Records** – HR can override system-enforced rejections.
 - [ ] **Back Up System Logs** – Backup logs for auditing and recovery.
 ---
-## 6.Manage Time Use-Case Details:
+## Manage Time Use-Case Details:
 
 ### 🎭 Actor:
 - **Employee**
@@ -107,7 +113,7 @@ Automate employee leave management while enforcing company policies through a ru
 6. Manager approves/rejects request (adds reason if rejected).
 7. Employee receives status update via email.
 ---
-### ERD (Entity Relationship Diagram):
+### ERD:
 ![ERD Diagram](assets/ERD.png)
 
 ---
