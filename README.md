@@ -18,7 +18,7 @@ VTS enables employees to manage their vacation and sick leave independently whil
   - [ERD:](#erd)
   - [📊 Flow Chart:](#-flow-chart)
   - [🔁 Sequence Diagram:](#-sequence-diagram)
-  - 📃 Pseudocode: [[manage-time-pseudocode]]
+  - 📃 [Pseudocode](manage-time-pseudocode.md):
 ---
 
 ## Vision:
