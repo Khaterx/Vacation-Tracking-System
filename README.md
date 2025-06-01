@@ -15,14 +15,10 @@ VTS enables employees to manage their vacation and sick leave independently whil
   - [Actors:](#actors)
   - [Main Use Cases:](#main-use-cases)
   - [Manage Time Use-Case Details:](#manage-time-use-case-details)
-    - [🎭 Actor:](#-actor)
-    - [🥅 Goal:](#-goal)
-    - [✅ Preconditions:](#-preconditions)
-    - [📋 Main Flow:](#-main-flow)
-    - [ERD:](#erd)
-    - [📊 Flow Chart:](#-flow-chart)
-    - [🔁 Sequence Diagram:](#-sequence-diagram)
-    - [📃 Pseudocode](#-pseudocode)
+  - [ERD:](#erd)
+  - [📊 Flow Chart:](#-flow-chart)
+  - [🔁 Sequence Diagram:](#-sequence-diagram)
+  - [📃 Pseudocode:](#-pseudocode)
 
 ---
 
@@ -79,9 +75,9 @@ Automate employee leave management while enforcing company policies through a ru
 ---
 ## Main Use Cases: 
 - [x] **Manage Time** – Request/view leave history and balances. 🔺✅ 2025-05-25
-- [ ] **Approve Request** – Approve or reject vacation requests.
+- [x] **Approve Request** – Approve or reject vacation requests. ✅ 2025-05-29
+- [x] **Edit Employee Record** – Update leave quotas, limits, or assignments. ✅ 2025-06-01
 - [ ] **Award Time** – Grant additional comp time to subordinates.
-- [ ] **Edit Employee Record** – Update leave quotas, limits, or assignments.
 - [ ] **Manage Locations** – Administer location-specific rules.
 - [ ] **Manage Leave Categories** – Define/mod categories and governing rules.
 - [ ] **Override Leave Records** – HR can override system-enforced rejections.
@@ -114,58 +110,33 @@ Automate employee leave management while enforcing company policies through a ru
 7. Employee receives status update via email.
 ---
 ### ERD:
-![ERD Diagram](assets/ERD.png)
+![ERD Diagram](manage-time-ERD.png)
 
 ---
  ### 📊 Flow Chart:
-![Manage Time Workflow](assets/manage-time-work-flow.excalidraw.png)
+#### Employee Flow
+![Employee Manage Time Workflow](assets/employee-flow-chart.png)
+
+#### Manger Flow
+![Manager Manage Time Workflow](assets/manager-flow-chart.png)
+
+
 
 ---
-### 🔁 Sequence Diagram: 
+### 🔁 Sequence Diagram:
+#### Main-Flow
+- Manage Time
+![Manage Time Workflow](assets/manage-time-main-case-sequence-diagram.png)
+
+----
+### Alternate Flows:
+
+- Edit Pending Request | Withdraw Request
+
+![Withdraw Request](assets/edit-Withdraw-Request.png)
 
 ---
-### 📃 Pseudocode
-```pseudocode
-START
+-  Cancel Approved Request
+![Withdraw Request](assets/manage-time-sequence-cancel-request.png)
 
-// Step 1: Employee logs into portal
-IF employee IS authenticated THEN
-    SHOW VTS homepage
-    FETCH vacation requests history (last 6 months to next 18 months)
-    SHOW vacation balance
-ELSE
-    DISPLAY "Access Denied"
-    END
-
-// Step 2: Employee creates a new request
-PROMPT employee TO select vacation category WITH positive balance
-
-IF category IS valid THEN
-    PROMPT employee TO select start and end dates, hours per day
-    PROMPT employee TO enter title and description
-
-    // Step 3: Validate data
-    IF input IS valid THEN
-        CREATE new VacationRequest WITH status = "Pending"
-
-        // Step 4: Check if manager approval is required
-        IF manager_approval_required THEN
-            SEND email TO manager WITH approval link
-        ELSE
-            SET VacationRequest.status = "Approved"
-        ENDIF
-
-        SAVE VacationRequest TO database
-        DISPLAY "Request submitted successfully"
-    ELSE
-        DISPLAY validation errors
-        ALLOW employee TO edit or cancel
-    ENDIF
-ELSE
-    DISPLAY "Invalid category or no balance"
-ENDIF
-
-END
-
-```
-
+---
