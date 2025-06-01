@@ -1,79 +1,104 @@
+
+### Step 1: Employee logs into portal
+```pseudocode
+function login(employee)
+	if isAuthenticated(emplyeeId):
+		if asManager(employee):
+			Display "list of pending requests"
+		else:
+		return employeeBalance
+		END
+	else:
+		Display "Access Denied"
+	END
 ```
-FUNCTION submitVacationRequest(employeeID)
-    // PRECONDITION: Employee must be authenticated
-    IF NOT isAuthenticated(employeeID) THEN
-        RETURN "Error: Authentication required"
-    ENDIF
-
-    // MAIN FLOW
-    // Step 1-2: Display dashboard
-    pastRequests = getRequests(employeeID, timeRange: "6 months past")
-    futureRequests = getRequests(employeeID, timeRange: "18 months future")
-    balances = getVacationBalances(employeeID)
-    displayDashboard(pastRequests, futureRequests, balances)
-
-    // Step 3-4: Collect new request data
-    newRequest = {
-        category: promptForCategory(balances),
-        dates: promptForDates(),
-        hoursPerDay: promptForHours(),
-        title: promptForTitle(),
-        description: promptForDescription()
-    }
-
-    // Step 5-6: Validate request
-    validationResult = validateRequest(newRequest, employeeID)
-    
-    // Step 7: Process based on validation
-    IF validationResult.isValid THEN
-        newRequest.status = "Pending Approval"
-        storeRequest(newRequest)
-        
-        IF requiresApproval(newRequest, employeeID) THEN
-            manager = getManager(employeeID)
-            sendApprovalRequest(manager, newRequest)
-            notification = "Request submitted for approval"
-        ELSE
-            newRequest.status = "Approved"
-            updateRequestStatus(newRequest)
-            updateBalances(employeeID, newRequest)
-            notification = "Request automatically approved"
-        ENDIF
-        
-        sendNotification(employeeID, notification)
-        RETURN "Success: " + notification
-    ELSE
-        displayErrors(validationResult.errors)
-        RETURN "Error: Validation failed"
-    ENDIF
-END FUNCTION
-
-// Supporting functions
-FUNCTION validateRequest(request, employeeID)
-    errors = []
-    
-    // Check required fields
-    IF request.category is empty THEN
-        errors.add("Category required")
-    ENDIF
-    
-    // Check date validity
-    IF request.dates.start > request.dates.end THEN
-        errors.add("Invalid date range")
-    ENDIF
-    
-    // Check business rules
-    IF exceedsMaxDuration(request) THEN
-        errors.add("Exceeds maximum allowed duration")
-    ENDIF
-    
-    RETURN {
-        isValid: (errors.length == 0),
-        errors: errors
-    }
-END FUNCTION
+### Step 2: Employee creates a new request
+```pseudocode
+function createVacationRequest(startDate,endDate,requestType)
+		displayLeavesBalance();
+	  if isEmployeeValid(employee) and if isValidDateRange(start_date, end_date)
+		   and if isValidCategory(requestType):
+			 return "Submit or Cancel" options
+			 if isSubmit:
+				vacationRequest = CREATE new VacationRequest WITH status = "Pending"
+				updateLeavesBalance(vacationRequest);
+				sendEmailToManagerAndAddToPendingList(vacationRequest);
+				return "Submit Successfully"
+			else:
+				return to homePage
+			END
+		else
+		   display "Invalid input data"
+	  END
 ```
 
+### Step 3: Manager Responds to Vacation Request
+```pseudocode
+function vacationResponse(manager, vacationRequest, isApproved, message) 
+    if (isManagerAuthorized(manager, vacationRequest)) 
+        if (isApproved) 
+            updateRequestStatusAsApproved(vacationRequest);
+         else 
+            updateRequestStatusAsRejected(vacationRequest);
+            attachRejectionMessage(vacationRequest, message);
+        END
+        sendEmailToEmployee(vacationRequest);
+     else
+        return "Manager not authorized to approve/reject this request.";
+    END
+
+```
+
+
+### Step 4:  Withdraw a Pending Vacation Request:
+```pseudocode
+function withdrawVacationRequest(employee)
+	if isEmployee(employee):
+	  displayVacationRequestSummary(employee);
+	  vacationRequest = selectPendingRequestToWithdraw();
+		if(vacationRequest != null && requestStatusIsPending(vacationRequest)):
+			if(confirmWithdrawRequest(vacationRequest)):
+				removeFromManagerPendingList(vacationRequest);
+				 updateRequestStatusToWithdrawn(vacationRequest);
+				 sendEmailToManager(vacationRequest);
+				 return "Vacation request withdrawn.";
+			else:
+				 return "Withdrawal canceled by employee.";
+			 END
+		else:
+			return "No pending request selected.";
+		END	
+	else:
+	  return "Invalid employee.";
+	END
+```
+
+### Step 5:  Cancel an Approved Vacation Request:
+```pseudocode
+function cancelApprovedRequest(employee)
+	if isEmployee(employee):
+	  displayVacationRequestSummary(employee);
+	  vacationRequest = selectApprovedRequestToCancel();
+	   if (vacationRequestInFuture(vacationRequest) ||acationRequestInRecentPast(vacationRequest)):
+		    if (vacationRequestInRecentPast(vacationRequest)):
+				 getShortCancellationExplanation();
+			 confirmCancellation(vacationRequest);
+				 if (employeeApprovesCancellation()):
+					 updateRequestStatusToCanceled(vacationRequest);
+					 notifyManagerByEmail(vacationRequest);
+					 returnVacationTimeToEmployee(employee, vacationRequest);
+					 return "Request canceled successfully.";
+				 else:
+					 return "Cancellation aborted."
+				END
+		else:
+			return "Request cannot be canceled." 
+		END
+	else:
+		return "Invalid employee.";
+	END
+```
+---
 ### 📃 Pseudocode:
 ```pseudocode
 START

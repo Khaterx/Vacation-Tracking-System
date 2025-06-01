@@ -18,8 +18,7 @@ VTS enables employees to manage their vacation and sick leave independently whil
   - [ERD:](#erd)
   - [📊 Flow Chart:](#-flow-chart)
   - [🔁 Sequence Diagram:](#-sequence-diagram)
-  - [📃 Pseudocode:](#-pseudocode)
-
+  - 📃 Pseudocode: [[manage-time-pseudocode]]
 ---
 
 ## Vision:
@@ -130,9 +129,7 @@ Automate employee leave management while enforcing company policies through a ru
 
 ----
 ### Alternate Flows:
-
 - Edit Pending Request | Withdraw Request
-
 ![Withdraw Request](assets/edit-Withdraw-Request.png)
 
 ---
